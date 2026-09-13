@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberNet - Panel Encargado</title>
+    <link rel="stylesheet" href="encargadostyle.css">
+    
+</head>
+<body>
+    
+    
+    <header class="navbar">
+        <h2>CyberNet - Panel del Encargado</h2>
+        <a href="Login.html" class="btn-logout">Cerrar Sesión</a>
+    </header>
+
+    <div class="main-layout">
+        
+        <nav class="sidebar">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#mapa">Mapa de Equipos</a></li>
+                <li><a href="#clientes">Gestión de Clientes</a></li>
+                <li><a href="#sesiones">Registro y Cierre</a></li>
+                <li><a href="#historial">Historial</a></li>
+            </ul>
+        </nav>
+
+        
+        <main class="content">
+            
+            
+            <section id="inicio" class="section">
+    <h3>Resumen General del Día</h3>
+    <div class="cards-grid">
+        <div class="card stat-card">
+            <h4>Sesiones Activas</h4>
+            <p class="stat-number" id="stat-sesiones-activas">0</p>
+        </div>
+        <div class="card stat-card">
+            <h4>Equipos Disponibles</h4>
+            <p class="stat-number" id="stat-equipos-disponibles">0</p>
+        </div>
+        <div class="card stat-card">
+            <h4>Total Recaudado Hoy</h4>
+            <p class="stat-number" id="total-recaudado">$45.000</p>
+        </div>
+    </div>
+</section>
+            </section>
+
+            
+            <section id="mapa" class="section">
+        <h3>Mapa de Computadores</h3>
+        <div class="pc-grid">
+            <div class="pc-card">
+                <h4>PC-01</h4>
+                <p>Ubicación: Zona A</p>
+                <span class="badge disponible">Disponible</span>
+                
+                
+            </div>
+            <div class="pc-card">
+                <h4>PC-02</h4>
+                <p>Ubicación: Zona A</p>
+                <span class="badge disponible">Disponible</span>
+                
+                
+            </div>
+            <div class="pc-card">
+                <h4>PC-03</h4>
+                <p>Ubicación: Zona B</p>
+                <span class="badge reservado">Reservado</span>
+            </div>
+            <div class="pc-card">
+                <h4>PC-04</h4>
+                <p>Ubicación: Zona B</p>
+                <span class="badge deshabilitado">Fuera de Servicio</span>
+            </div>
+            <div class="pc-card">
+                <h4>PC-05</h4>
+                <p>Ubicación: Zona C</p>
+                <span class="badge disponible">Disponible</span>
+                
+                
+            </div><div class="pc-card">
+                <h4>PC-06</h4>
+                <p>Ubicación: Zona C</p>
+                <span class="badge disponible">Disponible</span>
+                
+            </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    
+    <script src="Funciones.js"></script>
+</body>
+</html>
+
+            
+            <section id="clientes" class="section">
+                <h3>Gestión de Clientes</h3>
+                <div class="table-actions">
+                    <input type="text" placeholder="Buscar por correo o nombre..." class="search-input">
+                    <button class="btn-primary-sm">+ Nuevo Cliente</button>
+                </div>
+                <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Juan Pérez</td>
+                        <td>juan.perez@email.com</td>
+                        <td>
+                            <button type="button" class="btn-sm">Editar</button>
+                            <button type="button" class="btn-sm btn-historial">Historial</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>María González</td>
+                        <td>maria.g@email.com</td>
+                        <td>
+                            <button type="button" class="btn-sm">Editar</button>
+                            <button type="button" class="btn-sm btn-historial">Historial</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            </section>
+
+            
+            <section id="sesiones" class="section">
+                <h3>Registro y Cierre de Sesión</h3>
+                <div class="forms-grid">
+                    
+                    
+<div class="card form-box">
+    <h4>Iniciar Sesión de Uso</h4>
+    <form>
+        <div class="form-group">
+            <label for="select-pc">Equipo Libre:</label>
+            <select id="select-pc">
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="select-cliente">Cliente:</label>
+            <select id="select-cliente">
+                <option value="Juan Pérez">Juan Pérez (juan.perez@email.com)</option>
+                <option value="María González">María González (maria.g@email.com)</option>
+            </select>
+        </div>
+        
+        
+        <button type="button" id="btn-iniciar-tiempo" class="btn-primary">Iniciar Tiempo</button>
+        
+        
+        <div id="contenedor-temporizadores" style="margin-top: 15px;"></div>
+    </form>
+</div>
+
+                    
+                   <div class="card form-box">
+    <h4>Finalizar Sesión y Cobrar</h4>
+    <form id="form-cobro">
+        <div class="form-group">
+            <label for="select-activa">Sesión Seleccionada:</label>
+            <select id="select-activa">
+                <option value=""> Sin sesión seleccionada </option>
+            </select>
+        </div>
+        <div class="boleta-summary">
+            <p><strong>Cliente:</strong> <span id="boleta-cliente">-</span></p>
+            <p><strong>Tiempo transcurrido:</strong> <span id="boleta-tiempo">0 min</span></p>
+            <p><strong>Tarifa PC:</strong> $<span id="boleta-tarifa">0</span></p>
+            <p><strong>Servicios extras / Snacks:</strong> $<span id="boleta-servicios">0</span></p>
+            <hr>
+            <h4>Total a Pagar: $<span id="boleta-total">0</span></h4>
+        </div>
+        <button type="button" id="btn-cobrar" class="btn-danger">Cobrar y Finalizar</button>
+    </form>
+</div>
+
+                </div>
+            </section>
+
+            
+            <section id="historial" class="section">
+                <h3>Historial de Sesiones Realizadas</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Cliente</th>
+                            <th>Equipo</th>
+                            <th>Duración</th>
+                            <th>Total Paga</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2026-09-13</td>
+                            <td>Juan Pérez</td>
+                            <td>PC-01</td>
+                            <td>2 hrs</td>
+                            <td>$3.000</td>
+                        </tr>
+                        <tr>
+                            <td>2026-09-13</td>
+                            <td>María González</td>
+                            <td>PC-03</td>
+                            <td>1 hr</td>
+                            <td>$1.500</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+        </main>
+    </div>
+    <div id="modal-historial" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 id="modal-cliente-nombre">Historial de Sesiones</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Equipo (PC)</th>
+                        <th>Fecha</th>
+                        <th>Tiempo Utilizado</th>
+                    </tr>
+                </thead>
+                <tbody id="modal-historial-body">
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="Funciones.js"></script>
+</body>
+</html>
