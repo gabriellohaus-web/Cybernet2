@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberNet - Panel Administrador</title>
+    <link rel="stylesheet" href="adminstyle.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <h2>CyberNet - Panel Administrador</h2>
+        <a href="Login.html" class="btn-logout">Cerrar Sesión</a>
+    </header>
+
+    <div class="main-layout">
+
+        <nav class="sidebar">
+            <ul>
+                <li><a href="#resumen">Resumen General</a></li>
+                <li><a href="#gestion-pcs">Gestión Equipos</a></li>
+                <li><a href="#gestion-cuentas">Cuentas Personal</a></li>
+                <li><a href="#clientes">Clientes</a></li>
+            </ul>
+        </nav>
+
+        <main class="content">
+
+            <section id="resumen" class="section">
+                <h3>Resumen General del Negocio</h3>
+                <div class="cards-grid">
+                    <div class="card stat-card">
+                        <h4>Total Equipos</h4>
+                        <p class="stat-number">6</p>
+                    </div>
+                    <div class="card stat-card">
+                        <h4>Total Sesiones</h4>
+                        <p class="stat-number">12</p>
+                    </div>
+                    <div class="card stat-card">
+                        <h4>Ingresos Totales</h4>
+                        <p class="stat-number">$120.000</p>
+                    </div>
+                </div>
+            </section>
+
+            
+            <section id="gestion-pcs" class="section">
+                <h3>Gestión de Computadores</h3>
+
+                <div class="card form-box" style="margin-bottom: 20px;"> // Caja para el formulario de agregar o configurar equipo
+                    <h4>Configurar o Agregar Equipo</h4>
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="codigo-pc">Número/Código Equipo:</label>
+                            <input type="text" id="codigo-pc" placeholder="Ej: PC-07" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="precio-pc">Precio por Hora ($):</label>
+                            <input type="number" id="precio-pc" placeholder="Ej: 1500" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="estado-pc">Estado del Equipo:</label>
+                            <select id="estado-pc">
+                                <option value="disponible">Activo (Disponible)</option>
+                                <option value="deshabilitado">Deshabilitado (Fuera de servicio)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-primary-sm">Guardar Equipo</button>
+                    </form>
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Precio / Hora</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>PC-01</td>
+                            <td>$1.500</td>
+                            <td><span class="badge disponible">Activo</span></td>
+                            <td><button type="button" class="btn-sm">Editar</button></td>
+                        </tr>
+                        <tr>
+                            <td>PC-04</td>
+                            <td>$1.000</td>
+                            <td><span class="badge deshabilitado">Inactivo</span></td>
+                            <td><button type="button" class="btn-sm">Editar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section id="gestion-cuentas" class="section">
+                <h3>Gestión de Cuentas de Personal</h3>
+
+                <div class="card form-box" style="margin-bottom: 20px;">
+                    <h4>Crear Nueva Cuenta de Encargado</h4>
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="nombre-user">Nombre Completo:</label>
+                            <input type="text" id="nombre-user" placeholder="Carlos Gómez" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="correo-user">Correo de Acceso:</label>
+                            <input type="email" id="correo-user" placeholder="carlos@cybernet.cl" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pass-user">Contraseña Temporal:</label>
+                            <input type="password" id="pass-user" placeholder="••••••••" required>
+                        </div>
+                        <button type="submit" class="btn-primary-sm">Crear Encargado</button>
+                    </form>
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Rol</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Carlos Gómez</td>
+                            <td>carlos@cybernet.cl</td>
+                            <td>Encargado</td>
+                            <td><button type="button" class="btn-sm btn-danger">Desactivar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>
